@@ -1,0 +1,3 @@
+/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/CMakeFiles/rebuild_cache.dir
+/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/CMakeFiles/Singleton.dir
+/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/CMakeFiles/edit_cache.dir
