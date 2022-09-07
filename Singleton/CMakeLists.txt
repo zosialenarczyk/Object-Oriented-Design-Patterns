@@ -9,7 +9,7 @@ include_directories(
 
 set(SOURCE_FILES
     src
-)
+        src/file.cpp src)
 
 add_executable(Singleton_debug ${SOURCE_FILES} main.cpp)
 
