@@ -432,3 +432,39 @@ Parsed CXX implicit link information from above output:
   implicit fwks: []
 
 
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/cygdrive/c/Program Files/JetBrains/CLion 2021.3/bin/ninja/cygwin/ninja.exe cmTC_ce4fe && [1/2] Building C object CMakeFiles/cmTC_ce4fe.dir/CheckIncludeFile.c.o
+[2/2] Linking C executable cmTC_ce4fe.exe
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/cygdrive/c/Program Files/JetBrains/CLion 2021.3/bin/ninja/cygwin/ninja.exe cmTC_10f93 && [1/2] Building C object CMakeFiles/cmTC_10f93.dir/src.c.o
+[2/2] Linking C executable cmTC_10f93.exe
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+

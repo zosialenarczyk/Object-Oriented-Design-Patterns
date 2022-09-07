@@ -40,53 +40,98 @@ include CMakeFiles/rules.ninja
 # Logical path to working directory; prefix for absolute paths.
 
 cmake_ninja_workdir = /cygdrive/c/Users/Zosia/Desktop/Object-Oriented$ Design$ Patterns/Singleton/cmake-build-debug-cygwin/
+# =============================================================================
+# Object build statements for EXECUTABLE target my_project_test
+
 
 #############################################
-# Utility command for rebuild_cache
+# Order-only phony target for my_project_test
 
-build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe --regenerate-during-build -S"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton" -B"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin"
-  DESC = Running CMake to regenerate build system...
+build cmake_object_order_depends_target_my_project_test: phony || cmake_object_order_depends_target_gmock cmake_object_order_depends_target_gtest
+
+build CMakeFiles/my_project_test.dir/test/main_gtest.cpp.o: CXX_COMPILER__my_project_test_Debug /cygdrive/c/Users/Zosia/Desktop/Object-Oriented$ Design$ Patterns/Singleton/test/main_gtest.cpp || cmake_object_order_depends_target_my_project_test
+  DEP_FILE = CMakeFiles/my_project_test.dir/test/main_gtest.cpp.o.d
+  FLAGS = -g -std=gnu++14
+  INCLUDES = -I"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/include" -I"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/mocks" -isystem "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/googlemock/include" -isystem "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/googletest/include" -isystem "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/googlemock" -isystem "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/googletest"
+  OBJECT_DIR = CMakeFiles/my_project_test.dir
+  OBJECT_FILE_DIR = CMakeFiles/my_project_test.dir/test
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target my_project_test
+
+
+#############################################
+# Link the executable my_project_test.exe
+
+build my_project_test.exe: CXX_EXECUTABLE_LINKER__my_project_test_Debug CMakeFiles/my_project_test.dir/test/main_gtest.cpp.o | lib/libgmock.a lib/libgtest.a || lib/libgmock.a lib/libgtest.a
+  FLAGS = -g
+  LINK_FLAGS = -Wl,--enable-auto-import
+  LINK_LIBRARIES = lib/libgmock.a  lib/libgtest.a
+  OBJECT_DIR = CMakeFiles/my_project_test.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = my_project_test.exe
+  TARGET_IMPLIB = libmy_project_test.dll.a
+  TARGET_PDB = my_project_test.exe.dbg
+
+
+#############################################
+# Utility command for install/strip
+
+build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
   pool = console
   restat = 1
 
-build rebuild_cache: phony CMakeFiles/rebuild_cache.util
-
-# =============================================================================
-# Object build statements for EXECUTABLE target Singleton
+build install/strip: phony CMakeFiles/install/strip.util
 
 
 #############################################
-# Order-only phony target for Singleton
+# Utility command for install/local
 
-build cmake_object_order_depends_target_Singleton: phony || CMakeFiles/Singleton.dir
+build CMakeFiles/install/local.util: CUSTOM_COMMAND all
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
 
-build CMakeFiles/Singleton.dir/main.cpp.o: CXX_COMPILER__Singleton_Debug /cygdrive/c/Users/Zosia/Desktop/Object-Oriented$ Design$ Patterns/Singleton/main.cpp || cmake_object_order_depends_target_Singleton
-  DEP_FILE = CMakeFiles/Singleton.dir/main.cpp.o.d
+build install/local: phony CMakeFiles/install/local.util
+
+# =============================================================================
+# Object build statements for EXECUTABLE target Singleton_debug
+
+
+#############################################
+# Order-only phony target for Singleton_debug
+
+build cmake_object_order_depends_target_Singleton_debug: phony || CMakeFiles/Singleton_debug.dir
+
+build CMakeFiles/Singleton_debug.dir/main.cpp.o: CXX_COMPILER__Singleton_debug_Debug /cygdrive/c/Users/Zosia/Desktop/Object-Oriented$ Design$ Patterns/Singleton/main.cpp || cmake_object_order_depends_target_Singleton_debug
+  DEP_FILE = CMakeFiles/Singleton_debug.dir/main.cpp.o.d
   FLAGS = -g -std=gnu++14
-  OBJECT_DIR = CMakeFiles/Singleton.dir
-  OBJECT_FILE_DIR = CMakeFiles/Singleton.dir
-  TARGET_COMPILE_PDB = CMakeFiles/Singleton.dir/
-  TARGET_PDB = Singleton.pdb
+  INCLUDES = -I"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/include"
+  OBJECT_DIR = CMakeFiles/Singleton_debug.dir
+  OBJECT_FILE_DIR = CMakeFiles/Singleton_debug.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target Singleton
+# Link build statements for EXECUTABLE target Singleton_debug
 
 
 #############################################
-# Link the executable Singleton.exe
+# Link the executable Singleton_debug.exe
 
-build Singleton.exe: CXX_EXECUTABLE_LINKER__Singleton_Debug CMakeFiles/Singleton.dir/main.cpp.o
+build Singleton_debug.exe: CXX_EXECUTABLE_LINKER__Singleton_debug_Debug CMakeFiles/Singleton_debug.dir/main.cpp.o
   FLAGS = -g
   LINK_FLAGS = -Wl,--enable-auto-import
-  OBJECT_DIR = CMakeFiles/Singleton.dir
+  OBJECT_DIR = CMakeFiles/Singleton_debug.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_COMPILE_PDB = CMakeFiles/Singleton.dir/
-  TARGET_FILE = Singleton.exe
-  TARGET_IMPLIB = libSingleton.dll.a
-  TARGET_PDB = Singleton.pdb
+  TARGET_FILE = Singleton_debug.exe
+  TARGET_IMPLIB = libSingleton_debug.dll.a
+  TARGET_PDB = Singleton_debug.exe.dbg
 
 
 #############################################
@@ -99,10 +144,396 @@ build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
 
 build edit_cache: phony CMakeFiles/edit_cache.util
 
+
+#############################################
+# Utility command for rebuild_cache
+
+build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe --regenerate-during-build -S"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton" -B"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for install
+
+build CMakeFiles/install.util: CUSTOM_COMMAND all
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build install: phony CMakeFiles/install.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build list_install_components: phony
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build googletest-master/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe --regenerate-during-build -S"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton" -B"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build googletest-master/rebuild_cache: phony googletest-master/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for install/strip
+
+build googletest-master/CMakeFiles/install/strip.util: CUSTOM_COMMAND googletest-master/all
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build googletest-master/install/strip: phony googletest-master/CMakeFiles/install/strip.util
+
+
+#############################################
+# Utility command for install/local
+
+build googletest-master/CMakeFiles/install/local.util: CUSTOM_COMMAND googletest-master/all
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build googletest-master/install/local: phony googletest-master/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build googletest-master/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build googletest-master/edit_cache: phony googletest-master/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build googletest-master/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build googletest-master/CMakeFiles/install.util: CUSTOM_COMMAND googletest-master/all
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build googletest-master/install: phony googletest-master/CMakeFiles/install.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for install/strip
+
+build googletest-master/googlemock/CMakeFiles/install/strip.util: CUSTOM_COMMAND googletest-master/googlemock/all
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master/googlemock" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build googletest-master/googlemock/install/strip: phony googletest-master/googlemock/CMakeFiles/install/strip.util
+
+
+#############################################
+# Utility command for install/local
+
+build googletest-master/googlemock/CMakeFiles/install/local.util: CUSTOM_COMMAND googletest-master/googlemock/all
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master/googlemock" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build googletest-master/googlemock/install/local: phony googletest-master/googlemock/CMakeFiles/install/local.util
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Order-only phony target for gmock_main
+
+build cmake_object_order_depends_target_gmock_main: phony || cmake_object_order_depends_target_gmock cmake_object_order_depends_target_gtest
+
+build googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o: CXX_COMPILER__gmock_main_Debug /cygdrive/c/Users/Zosia/Desktop/Object-Oriented$ Design$ Patterns/Singleton/googletest-master/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
+  DEP_FILE = googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o.d
+  FLAGS = -g -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=gnu++14
+  INCLUDES = -I"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/include" -isystem "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/googlemock/include" -isystem "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/googlemock" -isystem "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/googletest/include" -isystem "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/googletest"
+  OBJECT_DIR = googletest-master/googlemock/CMakeFiles/gmock_main.dir
+  OBJECT_FILE_DIR = googletest-master/googlemock/CMakeFiles/gmock_main.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock_main
+
+
+#############################################
+# Link the static library lib/libgmock_main.a
+
+build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o || lib/libgmock.a lib/libgtest.a
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = googletest-master/googlemock/CMakeFiles/gmock_main.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgmock_main.a
+  TARGET_PDB = gmock_main.a.dbg
+
+
+#############################################
+# Utility command for install
+
+build googletest-master/googlemock/CMakeFiles/install.util: CUSTOM_COMMAND googletest-master/googlemock/all
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master/googlemock" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build googletest-master/googlemock/install: phony googletest-master/googlemock/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build googletest-master/googlemock/list_install_components: phony
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Order-only phony target for gmock
+
+build cmake_object_order_depends_target_gmock: phony || cmake_object_order_depends_target_gtest
+
+build googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o: CXX_COMPILER__gmock_Debug /cygdrive/c/Users/Zosia/Desktop/Object-Oriented$ Design$ Patterns/Singleton/googletest-master/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
+  DEP_FILE = googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o.d
+  FLAGS = -g -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=gnu++14
+  INCLUDES = -I"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/include" -I"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/googlemock/include" -I"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/googlemock" -isystem "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/googletest/include" -isystem "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/googletest"
+  OBJECT_DIR = googletest-master/googlemock/CMakeFiles/gmock.dir
+  OBJECT_FILE_DIR = googletest-master/googlemock/CMakeFiles/gmock.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gmock
+
+
+#############################################
+# Link the static library lib/libgmock.a
+
+build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_Debug googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o || lib/libgtest.a
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = googletest-master/googlemock/CMakeFiles/gmock.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgmock.a
+  TARGET_PDB = gmock.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build googletest-master/googlemock/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master/googlemock" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build googletest-master/googlemock/edit_cache: phony googletest-master/googlemock/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build googletest-master/googlemock/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master/googlemock" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe --regenerate-during-build -S"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton" -B"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build googletest-master/googlemock/rebuild_cache: phony googletest-master/googlemock/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/googlemock/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for install/strip
+
+build googletest-master/googletest/CMakeFiles/install/strip.util: CUSTOM_COMMAND googletest-master/googletest/all
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master/googletest" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build googletest-master/googletest/install/strip: phony googletest-master/googletest/CMakeFiles/install/strip.util
+
+
+#############################################
+# Utility command for install/local
+
+build googletest-master/googletest/CMakeFiles/install/local.util: CUSTOM_COMMAND googletest-master/googletest/all
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master/googletest" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build googletest-master/googletest/install/local: phony googletest-master/googletest/CMakeFiles/install/local.util
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Order-only phony target for gtest_main
+
+build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_depends_target_gtest
+
+build googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o: CXX_COMPILER__gtest_main_Debug /cygdrive/c/Users/Zosia/Desktop/Object-Oriented$ Design$ Patterns/Singleton/googletest-master/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
+  DEP_FILE = googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o.d
+  FLAGS = -g -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=gnu++14
+  INCLUDES = -I"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/include" -isystem "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/googletest/include" -isystem "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/googletest"
+  OBJECT_DIR = googletest-master/googletest/CMakeFiles/gtest_main.dir
+  OBJECT_FILE_DIR = googletest-master/googletest/CMakeFiles/gtest_main.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest_main
+
+
+#############################################
+# Link the static library lib/libgtest_main.a
+
+build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o || lib/libgtest.a
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = googletest-master/googletest/CMakeFiles/gtest_main.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgtest_main.a
+  TARGET_PDB = gtest_main.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build googletest-master/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master/googletest" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build googletest-master/googletest/edit_cache: phony googletest-master/googletest/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for install
+
+build googletest-master/googletest/CMakeFiles/install.util: CUSTOM_COMMAND googletest-master/googletest/all
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master/googletest" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe -P cmake_install.cmake
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build googletest-master/googletest/install: phony googletest-master/googletest/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build googletest-master/googletest/list_install_components: phony
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Order-only phony target for gtest
+
+build cmake_object_order_depends_target_gtest: phony || googletest-master/googletest/CMakeFiles/gtest.dir
+
+build googletest-master/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o: CXX_COMPILER__gtest_Debug /cygdrive/c/Users/Zosia/Desktop/Object-Oriented$ Design$ Patterns/Singleton/googletest-master/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
+  DEP_FILE = googletest-master/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o.d
+  FLAGS = -g -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=gnu++14
+  INCLUDES = -I"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/include" -I"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/googletest/include" -I"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/googletest-master/googletest"
+  OBJECT_DIR = googletest-master/googletest/CMakeFiles/gtest.dir
+  OBJECT_FILE_DIR = googletest-master/googletest/CMakeFiles/gtest.dir/src
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target gtest
+
+
+#############################################
+# Link the static library lib/libgtest.a
+
+build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_Debug googletest-master/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = googletest-master/googletest/CMakeFiles/gtest.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = lib/libgtest.a
+  TARGET_PDB = gtest.a.dbg
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build googletest-master/googletest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master/googletest" && /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/bin/cmake.exe --regenerate-during-build -S"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton" -B"/cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build googletest-master/googletest/rebuild_cache: phony googletest-master/googletest/CMakeFiles/rebuild_cache.util
+
 # =============================================================================
 # Target aliases.
 
-build Singleton: phony Singleton.exe
+build Singleton_debug: phony Singleton_debug.exe
+
+build gmock: phony lib/libgmock.a
+
+build gmock_main: phony lib/libgmock_main.a
+
+build gtest: phony lib/libgtest.a
+
+build gtest_main: phony lib/libgtest_main.a
+
+build libgmock.a: phony lib/libgmock.a
+
+build libgmock_main.a: phony lib/libgmock_main.a
+
+build libgtest.a: phony lib/libgtest.a
+
+build libgtest_main.a: phony lib/libgtest_main.a
+
+build my_project_test: phony my_project_test.exe
 
 # =============================================================================
 # Folder targets.
@@ -112,7 +543,28 @@ build Singleton: phony Singleton.exe
 #############################################
 # Folder: /cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin
 
-build all: phony Singleton.exe
+build all: phony my_project_test.exe Singleton_debug.exe googletest-master/all
+
+# =============================================================================
+
+#############################################
+# Folder: /cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master
+
+build googletest-master/all: phony googletest-master/googlemock/all
+
+# =============================================================================
+
+#############################################
+# Folder: /cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master/googlemock
+
+build googletest-master/googlemock/all: phony lib/libgmock_main.a lib/libgmock.a googletest-master/googletest/all
+
+# =============================================================================
+
+#############################################
+# Folder: /cygdrive/c/Users/Zosia/Desktop/Object-Oriented Design Patterns/Singleton/cmake-build-debug-cygwin/googletest-master/googletest
+
+build googletest-master/googletest/all: phony lib/libgtest_main.a lib/libgtest.a
 
 # =============================================================================
 # Built-in targets
@@ -121,14 +573,14 @@ build all: phony Singleton.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCCompiler.cmake.in /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCCompilerABI.c /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCXXCompiler.cmake.in /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCXXCompilerABI.cpp /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCXXInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCommonLanguageInclude.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCompilerIdDetection.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDetermineCCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDetermineCXXCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDetermineCompileFeatures.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDetermineCompilerABI.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDetermineCompilerId.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDetermineRCCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDetermineSystem.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeFindBinUtils.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeGenericSystem.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeInitializeConfigs.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeLanguageInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeParseImplicitIncludeInfo.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeParseImplicitLinkInfo.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeParseLibraryArchitecture.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeRCCompiler.cmake.in /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeRCInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeSystem.cmake.in /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeSystemSpecificInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeSystemSpecificInitialize.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeTestCCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeTestCXXCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeTestCompilerCommon.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeTestRCCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/ADSP-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/ARMCC-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/ARMClang-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/AppleClang-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Borland-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Clang-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Cray-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GHS-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU-C.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU-CXX.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU-FindBinUtils.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/HP-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/IAR-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Intel-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/MSVC-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/NVHPC-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/PGI-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/PathScale-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/ROCMClang-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/SCO-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/TI-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Watcom-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/XL-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/zOS-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Internal/FeatureTesting.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-Determine-CXX.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-GNU-C.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-GNU-CXX.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-GNU.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-windres.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeCXXCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../googletest-master/CMakeLists.txt ../googletest-master/googlemock/CMakeLists.txt ../googletest-master/googlemock/cmake/gmock.pc.in ../googletest-master/googlemock/cmake/gmock_main.pc.in ../googletest-master/googletest/CMakeLists.txt ../googletest-master/googletest/cmake/Config.cmake.in ../googletest-master/googletest/cmake/gtest.pc.in ../googletest-master/googletest/cmake/gtest_main.pc.in ../googletest-master/googletest/cmake/internal_utils.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCXXInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCommonLanguageInclude.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDependentOption.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeGenericSystem.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeInitializeConfigs.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeLanguageInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakePackageConfigHelpers.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeRCInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeSystemSpecificInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeSystemSpecificInitialize.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CheckCSourceCompiles.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CheckIncludeFile.c.in /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CheckIncludeFile.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CheckLibraryExists.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU-C.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU-CXX.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/FindPackageHandleStandardArgs.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/FindPackageMessage.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/FindPython.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/FindPython/Support.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/FindThreads.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/GNUInstallDirs.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Internal/CheckSourceCompiles.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-GNU-C.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-GNU-CXX.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-GNU.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-windres.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/UnixPaths.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeCXXCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCCompiler.cmake.in /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCCompilerABI.c /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCXXCompiler.cmake.in /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCXXCompilerABI.cpp /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCXXInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCommonLanguageInclude.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCompilerIdDetection.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDetermineCCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDetermineCXXCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDetermineCompileFeatures.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDetermineCompilerABI.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDetermineCompilerId.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDetermineRCCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDetermineSystem.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeFindBinUtils.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeGenericSystem.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeInitializeConfigs.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeLanguageInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeParseImplicitIncludeInfo.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeParseImplicitLinkInfo.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeParseLibraryArchitecture.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeRCCompiler.cmake.in /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeRCInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeSystem.cmake.in /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeSystemSpecificInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeSystemSpecificInitialize.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeTestCCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeTestCXXCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeTestCompilerCommon.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeTestRCCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/ADSP-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/ARMCC-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/ARMClang-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/AppleClang-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Borland-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Clang-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Cray-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GHS-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU-C.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU-CXX.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU-FindBinUtils.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/HP-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/HP-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/IAR-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Intel-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/MSVC-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/NVHPC-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/PGI-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/PathScale-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/ROCMClang-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/SCO-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/TI-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/Watcom-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/XL-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/XL-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/zOS-C-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Internal/FeatureTesting.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-Determine-CXX.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-GNU-C.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-GNU-CXX.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-GNU.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-windres.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeCXXCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake: phony
+build ../CMakeLists.txt ../googletest-master/CMakeLists.txt ../googletest-master/googlemock/CMakeLists.txt ../googletest-master/googlemock/cmake/gmock.pc.in ../googletest-master/googlemock/cmake/gmock_main.pc.in ../googletest-master/googletest/CMakeLists.txt ../googletest-master/googletest/cmake/Config.cmake.in ../googletest-master/googletest/cmake/gtest.pc.in ../googletest-master/googletest/cmake/gtest_main.pc.in ../googletest-master/googletest/cmake/internal_utils.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCXXInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeCommonLanguageInclude.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeDependentOption.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeGenericSystem.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeInitializeConfigs.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeLanguageInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakePackageConfigHelpers.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeRCInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeSystemSpecificInformation.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CMakeSystemSpecificInitialize.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CheckCSourceCompiles.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CheckIncludeFile.c.in /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CheckIncludeFile.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/CheckLibraryExists.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU-C.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU-CXX.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Compiler/GNU.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/FindPackageHandleStandardArgs.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/FindPackageMessage.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/FindPython.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/FindPython/Support.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/FindThreads.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/GNUInstallDirs.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Internal/CheckSourceCompiles.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-GNU-C.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-GNU-CXX.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-GNU.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN-windres.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/CYGWIN.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/Platform/UnixPaths.cmake /cygdrive/c/Users/Zosia/AppData/Local/JetBrains/CLion2021.3/cygwin_cmake/share/cmake-3.21.1/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeCXXCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake: phony
 
 
 #############################################
