@@ -7,77 +7,78 @@
 
 #include <cstdlib>
 #include <memory>
+#include <iostream>
 
 
 // ---------- STRATEGIES (INTERFACES) ---------------------
 
 class IFlyBehaviour {
 public:
-    virtual bool fly() const = 0;
+    virtual void fly() const = 0;
 };
 
 class IQuackBehaviour {
 public:
-    virtual bool quack() const = 0;
+    virtual void quack() const = 0;
 };
 
 class IDisplayBehaviour {
 public:
-    virtual bool display() const = 0;
+    virtual void display() const = 0;
 };
 
-//// ------------- CONCRETE CLASSES ---------------
-//
-//// IFlyBehaviour implementations ----------------
-//
-//class SimpleFly : public IFlyBehaviour {
-//public:
-//    bool fly() const override { return true; }
-//};
-//
-//class JetFly : public IFlyBehaviour {
-//public:
-//    bool fly() const override { return true; }
-//};
-//
-//class NoFly : public IFlyBehaviour {
-//public:
-//    bool fly() const override { return false; }
-//};
-//
-//// IQuackBehaviour implementations ---------------
-//
-//class LoudQuack : public IQuackBehaviour {
-//public:
-//    bool quack() const override { return true; }
-//};
-//
-//class QuietQuack : public IQuackBehaviour {
-//public:
-//    bool quack() const override { return true; }
-//};
-//
-//class NoQuack : public IQuackBehaviour {
-//public:
-//    bool quack() const override { return false; }
-//};
-//
-//// IDisplayBehaviour implementations ---------------
-//
-//class TextDisplay : public IDisplayBehaviour {
-//public:
-//    bool display() const override { return true; }
-//};
-//
-//class GraphicDisplay : public IDisplayBehaviour {
-//public:
-//    bool display() const override { return true; }
-//};
-//
-//class NoDisplay : public IDisplayBehaviour {
-//public:
-//    bool display() const override { return false; }
-//};
+// ------------- CONCRETE CLASSES ---------------
+
+// IFlyBehaviour implementations ----------------
+
+class SimpleFly : public IFlyBehaviour {
+public:
+    void fly() const override { std::cout << 'SimpleFly' << std::endl; }
+};
+
+class JetFly : public IFlyBehaviour {
+public:
+    void fly() const override { std::cout << 'JetFly' << std::endl; }
+};
+
+class NoFly : public IFlyBehaviour {
+public:
+    void fly() const override { std::cout << 'NoFly' << std::endl; }
+};
+
+// IQuackBehaviour implementations ---------------
+
+class LoudQuack : public IQuackBehaviour {
+public:
+    void quack() const override { std::cout << 'LoudQuack' << std::endl; }
+};
+
+class QuietQuack : public IQuackBehaviour {
+public:
+    void quack() const override { std::cout << 'QuietQuack' << std::endl; }
+};
+
+class NoQuack : public IQuackBehaviour {
+public:
+    void quack() const override { std::cout << 'NoQuack' << std::endl; }
+};
+
+// IDisplayBehaviour implementations ---------------
+
+class TextDisplay : public IDisplayBehaviour {
+public:
+    void display() const override { std::cout << 'TextDisplay' << std::endl; }
+};
+
+class GraphicDisplay : public IDisplayBehaviour {
+public:
+    void display() const override { std::cout << 'GRaphicDisplay' << std::endl; }
+};
+
+class NoDisplay : public IDisplayBehaviour {
+public:
+    void display() const override { std::cout << 'NoDisplay' << std::endl; }
+};
 
 // ------------ CONTEXT CLASS -----------------
 
@@ -93,9 +94,9 @@ public:
     void set_quack(std::unique_ptr<IQuackBehaviour> qb) { qb_ = std::move(qb); }
     void set_display(std::unique_ptr<IDisplayBehaviour> db) { db_ = std::move(db); }
 
-    bool fly() { fb_->fly(); }
-    bool quack() { qb_->quack(); }
-    bool display() { db_->display(); }
+    void fly() { fb_->fly(); }
+    void quack() { qb_->quack(); }
+    void display() { db_->display(); }
 
     ~Duck(){}
 
