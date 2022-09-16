@@ -14,16 +14,22 @@
 
 class IFlyBehaviour {
 public:
+    virtual IFlyBehaviour* clone() const = 0; // method for virtual copy constructor
+    virtual IFlyBehaviour* create() const = 0;
     virtual void fly() const = 0;
 };
 
 class IQuackBehaviour {
 public:
+    virtual IQuackBehaviour* clone() const = 0;
+    virtual IQuackBehaviour* create() const = 0;
     virtual void quack() const = 0;
 };
 
 class IDisplayBehaviour {
 public:
+    virtual IDisplayBehaviour* clone() const = 0;
+    virtual IDisplayBehaviour* create() const = 0;
     virtual void display() const = 0;
 };
 
@@ -33,16 +39,22 @@ public:
 
 class SimpleFly : public IFlyBehaviour {
 public:
+    SimpleFly* clone() const override { return new SimpleFly(*this); }
+    SimpleFly* create() const override { return new SimpleFly(); }
     void fly() const override { std::cout << 'SimpleFly' << std::endl; }
 };
 
 class JetFly : public IFlyBehaviour {
 public:
+    JetFly* clone() const override { return new JetFly(*this); }
+    JetFly* create() const override { return new JetFly(); }
     void fly() const override { std::cout << 'JetFly' << std::endl; }
 };
 
 class NoFly : public IFlyBehaviour {
 public:
+    NoFly* clone() const override { return new NoFly(*this); }
+    NoFly* create() const override { return new NoFly(); }
     void fly() const override { std::cout << 'NoFly' << std::endl; }
 };
 
@@ -50,16 +62,22 @@ public:
 
 class LoudQuack : public IQuackBehaviour {
 public:
+    LoudQuack* clone() const override { return new LoudQuack(*this); }
+    LoudQuack* create() const override { return new LoudQuack();}
     void quack() const override { std::cout << 'LoudQuack' << std::endl; }
 };
 
 class QuietQuack : public IQuackBehaviour {
 public:
+    QuietQuack* clone() const override { return new QuietQuack(*this); }
+    QuietQuack* create() const override { return new QuietQuack();}
     void quack() const override { std::cout << 'QuietQuack' << std::endl; }
 };
 
 class NoQuack : public IQuackBehaviour {
 public:
+    NoQuack* clone() const override { return new NoQuack(*this); }
+    NoQuack* create() const override { return new NoQuack();}
     void quack() const override { std::cout << 'NoQuack' << std::endl; }
 };
 
@@ -67,16 +85,22 @@ public:
 
 class TextDisplay : public IDisplayBehaviour {
 public:
+    TextDisplay* clone() const override { return new TextDisplay(*this); }
+    TextDisplay* create() const override { return new TextDisplay{}; }
     void display() const override { std::cout << 'TextDisplay' << std::endl; }
 };
 
 class GraphicDisplay : public IDisplayBehaviour {
 public:
-    void display() const override { std::cout << 'GRaphicDisplay' << std::endl; }
+    GraphicDisplay* clone() const override { return new GraphicDisplay(*this); }
+    GraphicDisplay* create() const override { return new GraphicDisplay(); }
+    void display() const override { std::cout << 'GraphicDisplay' << std::endl; }
 };
 
 class NoDisplay : public IDisplayBehaviour {
 public:
+    NoDisplay* clone() const override { return new NoDisplay(*this); }
+    NoDisplay* create() const override { return new NoDisplay{}; }
     void display() const override { std::cout << 'NoDisplay' << std::endl; }
 };
 
@@ -85,9 +109,13 @@ public:
 class Duck {
 public:
 
-    Duck() = default; // default constructor created with word "defualt" because compiler
-                    // will not create default constructor by itself when class has an user-implemented constructor
-    Duck(std::unique_ptr<IFlyBehaviour> fb, std::unique_ptr<IQuackBehaviour> qb, std::unique_ptr<IDisplayBehaviour> db); // default constructor
+    Duck() = default; // default constructor created with word "defualt" because compiler will not create
+                    // default constructor by itself when class has at least one user-implemented constructor
+
+    Duck(std::unique_ptr<IFlyBehaviour> fb, std::unique_ptr<IQuackBehaviour> qb, std::unique_ptr<IDisplayBehaviour> db);
+    Duck(const Duck& duck);
+
+    ~Duck() = default;
 
     // setters
     void set_fly(std::unique_ptr<IFlyBehaviour> fb) { fb_ = std::move(fb); }
@@ -97,8 +125,6 @@ public:
     void fly() { fb_->fly(); }
     void quack() { qb_->quack(); }
     void display() { db_->display(); }
-
-    ~Duck(){}
 
 private:
     std::unique_ptr<IFlyBehaviour> fb_;

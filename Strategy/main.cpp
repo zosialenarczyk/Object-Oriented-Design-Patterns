@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "duck.hpp"
+#include "learning.hpp"
 
 int main() {
 
@@ -22,8 +23,13 @@ int main() {
     Duck duck2(std::make_unique<JetFly>(jetFly), std::make_unique<LoudQuack>(loudQuack), std::make_unique<GraphicDisplay>(graphicDisplay));
     Duck duck3(std::make_unique<NoFly>(noFly), std::make_unique<NoQuack>(noQuack), std::make_unique<NoDisplay>(noDisplay));
 
-    std::vector<Duck> ducks = {duck1, duck2, duck3}; //FIXME
+    std::vector<Duck> ducks = {duck1, duck2, duck3};
 
+    for (auto duck: ducks){
+        duck.fly();
+        duck.quack();
+        duck.display();
+    }
 
     return 0;
 }
