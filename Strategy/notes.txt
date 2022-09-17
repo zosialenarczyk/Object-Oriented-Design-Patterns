@@ -1,13 +1,33 @@
 TODO:
 
-- unit tests
 - fix the error with too long chars in cout
-- what about destrcutors? where is it necessary to define them?
-- shall i leave short, one line method implementaions in header file?
-- what is overload resolution? (at some point there was an error related to this issue)
-- what about std::make_unique() instead of 'new' in constructors? what's the difference?
+
+
+DOING:
+- unit tests
+-> prepare (think over) test cases
+	- setters and getters
+	- creating new objects (using various constructors)
+	- call fly(), quack(), display() methods -> modify std::cout in these methods
 
 
 DONE:
 - rethink how to implement 'virtual defualt constructor' using virtual method create()
 -> i guess it's ok
+
+- what about destrcutors? where is it necessary to define them?
+-> in base classes and if interface has a virtual destructor, concrete classes should override it
+
+- shall i leave short, one line method implementaions in header file?
+-> yup, it's not incorrect if it doesn't affect readability of .hpp
+
+- what about std::make_unique() instead of 'new' in constructors? what's the difference?
+-> it's more readible I guess, if I wanted to implement clone and create methods with
+std::make_unique(), the types of these methods would be too long
+-> but other than I guess I could use std::make_unique() over 'new'
+
+- what is overload resolution? (at some point there was an error related to this issue)
+-> it's when a function is called and the process of name lookup finds more than one
+candidate for this function (e.g. function is overloaded), so it's literally
+overload resolution :)
+

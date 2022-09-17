@@ -45,7 +45,7 @@ public:
     SimpleFly* clone() const override { return new SimpleFly(*this); }
     SimpleFly* create() const override { return new SimpleFly(); }
     void fly() const override { std::cout << 'SimpleFly' << std::endl; }
-    ~SimpleFly() = default;
+    ~SimpleFly() override = default;
 };
 
 class JetFly : public IFlyBehaviour {
@@ -53,7 +53,7 @@ public:
     JetFly* clone() const override { return new JetFly(*this); }
     JetFly* create() const override { return new JetFly(); }
     void fly() const override { std::cout << 'JetFly' << std::endl; }
-    ~JetFly() = default;
+    ~JetFly() override = default;
 };
 
 class NoFly : public IFlyBehaviour {
@@ -61,7 +61,7 @@ public:
     NoFly* clone() const override { return new NoFly(*this); }
     NoFly* create() const override { return new NoFly(); }
     void fly() const override { std::cout << 'NoFly' << std::endl; }
-    ~NoFly() = default;
+    ~NoFly() override = default;
 };
 
 // IQuackBehaviour implementations ---------------
@@ -71,7 +71,7 @@ public:
     LoudQuack* clone() const override { return new LoudQuack(*this); }
     LoudQuack* create() const override { return new LoudQuack();}
     void quack() const override { std::cout << 'LoudQuack' << std::endl; }
-    ~LoudQuack() = default;
+    ~LoudQuack() override = default;
 };
 
 class QuietQuack : public IQuackBehaviour {
@@ -79,7 +79,7 @@ public:
     QuietQuack* clone() const override { return new QuietQuack(*this); }
     QuietQuack* create() const override { return new QuietQuack();}
     void quack() const override { std::cout << 'QuietQuack' << std::endl; }
-    ~QuietQuack() = default;
+    ~QuietQuack() override = default;
 };
 
 class NoQuack : public IQuackBehaviour {
@@ -87,7 +87,7 @@ public:
     NoQuack* clone() const override { return new NoQuack(*this); }
     NoQuack* create() const override { return new NoQuack();}
     void quack() const override { std::cout << 'NoQuack' << std::endl; }
-    ~NoQuack() = default;
+    ~NoQuack() override = default;
 };
 
 // IDisplayBehaviour implementations ---------------
@@ -95,9 +95,9 @@ public:
 class TextDisplay : public IDisplayBehaviour {
 public:
     TextDisplay* clone() const override { return new TextDisplay(*this); }
-    TextDisplay* create() const override { return new TextDisplay{}; }
+    TextDisplay* create() const override { return new TextDisplay(); }
     void display() const override { std::cout << 'TextDisplay' << std::endl; }
-    ~TextDisplay() = default;
+    ~TextDisplay() override = default;
 };
 
 class GraphicDisplay : public IDisplayBehaviour {
@@ -105,15 +105,15 @@ public:
     GraphicDisplay* clone() const override { return new GraphicDisplay(*this); }
     GraphicDisplay* create() const override { return new GraphicDisplay(); }
     void display() const override { std::cout << 'GraphicDisplay' << std::endl; }
-    ~GraphicDisplay() = default;
+    ~GraphicDisplay() override = default;
 };
 
 class NoDisplay : public IDisplayBehaviour {
 public:
     NoDisplay* clone() const override { return new NoDisplay(*this); }
-    NoDisplay* create() const override { return new NoDisplay{}; }
+    NoDisplay* create() const override { return new NoDisplay(); }
     void display() const override { std::cout << 'NoDisplay' << std::endl; }
-    ~NoDisplay() = default;
+    ~NoDisplay() override = default;
 };
 
 // ------------ CONTEXT CLASS -----------------
@@ -133,6 +133,11 @@ public:
     void set_fly(std::unique_ptr<IFlyBehaviour> fb) { fb_ = std::move(fb); }
     void set_quack(std::unique_ptr<IQuackBehaviour> qb) { qb_ = std::move(qb); }
     void set_display(std::unique_ptr<IDisplayBehaviour> db) { db_ = std::move(db); }
+
+    //getters
+    void get_fly() { return fb_->fly(); }
+    void get_quack() { return qb_->quack(); }
+    void get_display() { return db_->display(); }
 
     void fly() { fb_->fly(); }
     void quack() { qb_->quack(); }
