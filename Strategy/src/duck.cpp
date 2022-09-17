@@ -5,6 +5,11 @@
 #include "duck.hpp"
 #include <memory>
 
+Duck::Duck() :
+fb_(this->fb_ ? this->fb_->create() : nullptr), // if duck.fb_ exists then create it, if not return nullptr?
+qb_(this->qb_ ? this->qb_->create() : nullptr),
+db_(this->db_ ? this->db_->create() : nullptr) {}
+
 Duck::Duck(std::unique_ptr<IFlyBehaviour> fb, std::unique_ptr<IQuackBehaviour> qb, std::unique_ptr<IDisplayBehaviour> db)
 : fb_(std::move(fb)), qb_(std::move(qb)), db_(std::move(db)) {}
 
