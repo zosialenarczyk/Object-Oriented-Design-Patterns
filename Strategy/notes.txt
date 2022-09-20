@@ -1,14 +1,5 @@
 TODO:
-
-- fix the error with too long chars in cout
-
-
-DOING:
-- unit tests
--> prepare (think over) test cases
-	- setters and getters
-	- creating new objects (using various constructors)
-	- call fly(), quack(), display() methods -> modify std::cout in these methods
+- fix test
 
 
 DONE:
@@ -31,3 +22,5 @@ std::make_unique(), the types of these methods would be too long
 candidate for this function (e.g. function is overloaded), so it's literally
 overload resolution :)
 
+- fix the error with too long chars in cout
+-> use "" instead of '' beacuse compiler treats it as multi-char literal not a string

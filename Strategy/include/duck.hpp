@@ -8,14 +8,15 @@
 #include <cstdlib>
 #include <memory>
 #include <iostream>
+#include <string>
 
 
 // ---------- STRATEGIES (INTERFACES) ---------------------
 
 class IFlyBehaviour {
 public:
-    virtual IFlyBehaviour* clone() const = 0; // method for 'virtual copy constructor'
-    virtual IFlyBehaviour* create() const = 0; // method for 'virtual default constructor'
+    virtual IFlyBehaviour* clone() const = 0; // method for "virtual copy constructor"
+    virtual IFlyBehaviour* create() const = 0; // method for "virtual default constructor"
     virtual void fly() const = 0;
     virtual ~IFlyBehaviour() = default;
 };
@@ -32,7 +33,7 @@ class IDisplayBehaviour {
 public:
     virtual IDisplayBehaviour* clone() const = 0;
     virtual IDisplayBehaviour* create() const = 0;
-    virtual void display() const = 0;
+    virtual std::string display() const = 0;
     virtual ~IDisplayBehaviour() = default;
 };
 
@@ -44,7 +45,7 @@ class SimpleFly : public IFlyBehaviour {
 public:
     SimpleFly* clone() const override { return new SimpleFly(*this); }
     SimpleFly* create() const override { return new SimpleFly(); }
-    void fly() const override { std::cout << 'SimpleFly' << std::endl; }
+    void fly() const override { std::cout << "SimpleFly" << std::endl; }
     ~SimpleFly() override = default;
 };
 
@@ -52,7 +53,7 @@ class JetFly : public IFlyBehaviour {
 public:
     JetFly* clone() const override { return new JetFly(*this); }
     JetFly* create() const override { return new JetFly(); }
-    void fly() const override { std::cout << 'JetFly' << std::endl; }
+    void fly() const override { std::cout << "JetFly" << std::endl; }
     ~JetFly() override = default;
 };
 
@@ -60,7 +61,7 @@ class NoFly : public IFlyBehaviour {
 public:
     NoFly* clone() const override { return new NoFly(*this); }
     NoFly* create() const override { return new NoFly(); }
-    void fly() const override { std::cout << 'NoFly' << std::endl; }
+    void fly() const override { std::cout << "NoFly" << std::endl; }
     ~NoFly() override = default;
 };
 
@@ -70,7 +71,7 @@ class LoudQuack : public IQuackBehaviour {
 public:
     LoudQuack* clone() const override { return new LoudQuack(*this); }
     LoudQuack* create() const override { return new LoudQuack();}
-    void quack() const override { std::cout << 'LoudQuack' << std::endl; }
+    void quack() const override { std::cout << "LoudQuack" << std::endl; }
     ~LoudQuack() override = default;
 };
 
@@ -78,7 +79,7 @@ class QuietQuack : public IQuackBehaviour {
 public:
     QuietQuack* clone() const override { return new QuietQuack(*this); }
     QuietQuack* create() const override { return new QuietQuack();}
-    void quack() const override { std::cout << 'QuietQuack' << std::endl; }
+    void quack() const override { std::cout << "QuietQuack" << std::endl; }
     ~QuietQuack() override = default;
 };
 
@@ -86,7 +87,7 @@ class NoQuack : public IQuackBehaviour {
 public:
     NoQuack* clone() const override { return new NoQuack(*this); }
     NoQuack* create() const override { return new NoQuack();}
-    void quack() const override { std::cout << 'NoQuack' << std::endl; }
+    void quack() const override { std::cout << "NoQuack" << std::endl; }
     ~NoQuack() override = default;
 };
 
@@ -96,7 +97,7 @@ class TextDisplay : public IDisplayBehaviour {
 public:
     TextDisplay* clone() const override { return new TextDisplay(*this); }
     TextDisplay* create() const override { return new TextDisplay(); }
-    void display() const override { std::cout << 'TextDisplay' << std::endl; }
+    std::string display() const override { return "TextDisplay"; }
     ~TextDisplay() override = default;
 };
 
@@ -104,7 +105,7 @@ class GraphicDisplay : public IDisplayBehaviour {
 public:
     GraphicDisplay* clone() const override { return new GraphicDisplay(*this); }
     GraphicDisplay* create() const override { return new GraphicDisplay(); }
-    void display() const override { std::cout << 'GraphicDisplay' << std::endl; }
+    std::string display() const override { return "GraphicDisplay"; }
     ~GraphicDisplay() override = default;
 };
 
@@ -112,7 +113,7 @@ class NoDisplay : public IDisplayBehaviour {
 public:
     NoDisplay* clone() const override { return new NoDisplay(*this); }
     NoDisplay* create() const override { return new NoDisplay(); }
-    void display() const override { std::cout << 'NoDisplay' << std::endl; }
+    std::string display() const override { return "NoDisplay"; }
     ~NoDisplay() override = default;
 };
 
@@ -135,13 +136,13 @@ public:
     void set_display(std::unique_ptr<IDisplayBehaviour> db) { db_ = std::move(db); }
 
     //getters
-    void get_fly() { return fb_->fly(); }
-    void get_quack() { return qb_->quack(); }
-    void get_display() { return db_->display(); }
+    IFlyBehaviour* get_flyBehaviour() { return fb_->clone(); }
+    IQuackBehaviour* get_quackBehaviour() { return qb_->clone(); }
+    IDisplayBehaviour* get_displayBehaviour() { return db_->clone(); }
 
     void fly() { fb_->fly(); }
     void quack() { qb_->quack(); }
-    void display() { db_->display(); }
+    std::string display() { db_->display(); }
 
 private:
     std::unique_ptr<IFlyBehaviour> fb_;
