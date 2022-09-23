@@ -8,15 +8,14 @@ include_directories(
 )
 
 set(SOURCE_FILES
-        src/duck.cpp src
-)
+        src/duck.cpp src)
 
 add_executable(Strategy_debug ${SOURCE_FILES} main.cpp)
 
 # == Unit testing using Google Testing Framework ==
 
 set(SOURCES_FILES_TESTS
-        test)
+        test/test_duck.cpp)
 
 add_executable(my_project_test ${SOURCE_FILES} ${SOURCES_FILES_TESTS} test/main_gtest.cpp)
 
